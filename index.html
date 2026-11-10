@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>윤성 · 링크</title>
+<meta name="description" content="윤성의 웹사이트와 블로그 링크 모음">
+<!-- 링크 미리보기(카톡·인스타 DM 등)에 보이는 정보 -->
+<meta property="og:title" content="윤성 · 링크">
+<meta property="og:description" content="웹사이트와 블로그를 한 곳에서">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f3ee;
+    --card: #ffffff;
+    --text: #1d1b19;
+    --muted: #6f6a63;
+    --line: #e6e0d8;
+    --accent: #e4572e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151413;
+      --card: #201f1d;
+      --text: #f2efea;
+      --muted: #a39d95;
+      --line: #33302c;
+      --accent: #ff7a50;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans KR", -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 56px 16px 40px;
+  }
+  main { width: 100%; max-width: 440px; text-align: center; }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    margin: 0 auto 16px;
+    background: var(--accent);
+    color: #fff; font-size: 36px; font-weight: 700;
+    display: grid; place-items: center;
+    object-fit: cover;
+  }
+  h1 { font-size: 22px; font-weight: 700; }
+  .handle { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .bio { font-size: 15px; line-height: 1.6; margin: 14px auto 32px; max-width: 340px; white-space: pre-line; }
+  ul { list-style: none; display: grid; gap: 12px; }
+  a.link {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 18px;
+    color: var(--text); text-decoration: none; text-align: left;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  a.link:hover, a.link:focus-visible { transform: translateY(-2px); border-color: var(--accent); outline: none; }
+  .emoji { font-size: 22px; width: 28px; text-align: center; flex-shrink: 0; }
+  .label { font-weight: 500; font-size: 16px; }
+  .desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .arrow { margin-left: auto; color: var(--muted); flex-shrink: 0; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <div id="profile"></div>
+  <ul id="links"></ul>
+  <footer id="footer"></footer>
+</main>
+
+<script>
+/* ===========================================
+   ✏️ 여기만 고치면 돼요
+   =========================================== */
+const PROFILE = {
+  name: "윤성",
+  handle: "@yun_justdoit",          // 인스타 아이디
+  bio: "저스트두잇 🏃\n일상과 생각을 기록해요",
+  photo: "",                        // 프로필 사진 파일명 (예: "profile.jpg"). 비우면 이름 첫 글자
+};
+
+const LINKS = [
+  { emoji: "📊", label: "콘텐츠 매니저", desc: "기획부터 업로드, 성과 분석까지 한곳에서", url: "https://parkdlstn246-svg.github.io/content-manager/" },
+  { emoji: "📝", label: "회고록 모임",   desc: "매주 회고를 함께 올리는 모임", url: "https://retro-club-73e7e.web.app/" },
+  { emoji: "✍️", label: "네이버 블로그", desc: "일상과 생각 기록", url: "https://m.blog.naver.com/yun_ggaam" },
+  // 링크를 더 넣고 싶으면 위 줄을 복사해서 추가하세요
+];
+/* =========================================== */
+
+const p = document.getElementById("profile");
+p.innerHTML = (PROFILE.photo
+    ? `<img class="avatar" src="${PROFILE.photo}" alt="${PROFILE.name}">`
+    : `<div class="avatar">${PROFILE.name.charAt(0)}</div>`) +
+  `<h1>${PROFILE.name}</h1>` +
+  (PROFILE.handle ? `<p class="handle">${PROFILE.handle}</p>` : "") +
+  `<p class="bio">${PROFILE.bio}</p>`;
+
+document.getElementById("links").innerHTML = LINKS.map(l => `
+  <li><a class="link" href="${l.url}" target="_blank" rel="noopener">
+    <span class="emoji">${l.emoji}</span>
+    <span><div class="label">${l.label}</div>${l.desc ? `<div class="desc">${l.desc}</div>` : ""}</span>
+    <span class="arrow">→</span>
+  </a></li>`).join("");
+
+document.getElementById("footer").textContent = `© ${new Date().getFullYear()} ${PROFILE.name}`;
+</script>
+</body>
+</html>
