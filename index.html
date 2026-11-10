@@ -39,7 +39,17 @@
     object-fit: cover;
   }
   h1 { font-size: 22px; font-weight: 700; }
-  .handle { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .handle {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 14px; margin-top: 6px;
+    text-decoration: none;
+  }
+  .handle .go {
+    background: var(--card); color: var(--accent);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px 10px; font-size: 12px; font-weight: 500;
+  }
+  .handle:hover .go, .handle:focus-visible .go { border-color: var(--accent); }
   .bio { font-size: 15px; line-height: 1.6; margin: 14px auto 32px; max-width: 340px; white-space: pre-line; }
   ul { list-style: none; display: grid; gap: 12px; }
   a.link {
@@ -73,14 +83,16 @@
 const PROFILE = {
   name: "윤성 | 뭐든",
   handle: "@yun_justdoit",          // 인스타 아이디
+  instagram: "https://www.instagram.com/yun_justdoit/",  // 아이디를 누르면 열리는 주소
   bio: "경험과 생각을 콘텐츠로 공유해요 💬\n취준 · 일 • 운동 · 자기관리 • 썰 📢 과 가끔 일상\n✉️ 문의 • qkrdlstn246@naver.com",
   photo: "profile.jpg",                      // 프로필 사진 파일명 (예: "profile.jpg"). 비우면 이름 첫 글자
 };
 
 const LINKS = [
-  { emoji: "📊", label: "콘텐츠 매니저", desc: "기획부터 업로드, 성과 분석까지 한곳에서", url: "https://parkdlstn246-svg.github.io/content-manager/" },
-  { emoji: "📝", label: "회고록 모임",   desc: "매주 회고를 함께 올리는 모임", url: "https://retro-club-73e7e.web.app/" },
+  { emoji: "📊", label: "콘텐츠 매니저", desc: "기획, 업로드, 성과 분석까지 한 곳에서!", url: "https://parkdlstn246-svg.github.io/content-manager/" },
+  { emoji: "📝", label: "회고록 모임",   desc: "매주 회고를 올리며 성장하는 모임", url: "https://retro-club-73e7e.web.app/" },
   { emoji: "✍️", label: "네이버 블로그", desc: "기록하고 있어요!", url: "https://m.blog.naver.com/yun_ggaam" },
+  { emoji: "🏋️", label: "꾸틴 스팟",     desc: "꾸준히 운동하는 사람들을 소개해요", url: "https://www.instagram.com/kkutine.spot/" },
   // 링크를 더 넣고 싶으면 위 줄을 복사해서 추가하세요
 ];
 /* =========================================== */
@@ -90,7 +102,7 @@ p.innerHTML = (PROFILE.photo
     ? `<img class="avatar" src="${PROFILE.photo}" alt="${PROFILE.name}">`
     : `<div class="avatar">${PROFILE.name.charAt(0)}</div>`) +
   `<h1>${PROFILE.name}</h1>` +
-  (PROFILE.handle ? `<p class="handle">${PROFILE.handle}</p>` : "") +
+  (PROFILE.handle ? `<a class="handle" href="${PROFILE.instagram}" target="_blank" rel="noopener">${PROFILE.handle}<span class="go">인스타 바로가기 ↗</span></a>` : "") +
   `<p class="bio">${PROFILE.bio}</p>`;
 
 document.getElementById("links").innerHTML = LINKS.map(l => `
