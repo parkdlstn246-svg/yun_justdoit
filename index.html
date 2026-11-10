@@ -12,22 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f3ee;
+    --bg: #e3f2fd;      /* 배경색: 연한 하늘색 */
     --card: #ffffff;
-    --text: #1d1b19;
-    --muted: #6f6a63;
-    --line: #e6e0d8;
-    --accent: #e4572e;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #151413;
-      --card: #201f1d;
-      --text: #f2efea;
-      --muted: #a39d95;
-      --line: #33302c;
-      --accent: #ff7a50;
-    }
+    --text: #1b2a38;
+    --muted: #5f7385;
+    --line: #cde4f5;
+    --accent: #4a9fe0;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -81,16 +71,16 @@
    ✏️ 여기만 고치면 돼요
    =========================================== */
 const PROFILE = {
-  name: "윤성",
+  name: "윤성 | 뭐든",
   handle: "@yun_justdoit",          // 인스타 아이디
-  bio: "저스트두잇 🏃\n일상과 생각을 기록해요",
-  photo: "",                        // 프로필 사진 파일명 (예: "profile.jpg"). 비우면 이름 첫 글자
+  bio: "경험과 생각을 콘텐츠로 공유해요 💬\n취준 · 일 • 운동 · 자기관리 • 썰 📢 과 가끔 일상\n✉️ 문의 • qkrdlstn246@naver.com",
+  photo: "profile.jpg",                      // 프로필 사진 파일명 (예: "profile.jpg"). 비우면 이름 첫 글자
 };
 
 const LINKS = [
   { emoji: "📊", label: "콘텐츠 매니저", desc: "기획부터 업로드, 성과 분석까지 한곳에서", url: "https://parkdlstn246-svg.github.io/content-manager/" },
   { emoji: "📝", label: "회고록 모임",   desc: "매주 회고를 함께 올리는 모임", url: "https://retro-club-73e7e.web.app/" },
-  { emoji: "✍️", label: "네이버 블로그", desc: "일상과 생각 기록", url: "https://m.blog.naver.com/yun_ggaam" },
+  { emoji: "✍️", label: "네이버 블로그", desc: "기록하고 있어요!", url: "https://m.blog.naver.com/yun_ggaam" },
   // 링크를 더 넣고 싶으면 위 줄을 복사해서 추가하세요
 ];
 /* =========================================== */
