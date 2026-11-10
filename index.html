@@ -41,15 +41,15 @@
   h1 { font-size: 22px; font-weight: 700; }
   .handle {
     display: inline-flex; align-items: center; gap: 8px;
-    color: var(--muted); font-size: 14px; margin-top: 6px;
+    color: #000; font-size: 14px; margin-top: 6px;
     text-decoration: none;
   }
   .handle .go {
-    background: var(--card); color: var(--accent);
-    border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card); color: #000;
+    border: 1px solid #000; border-radius: 999px;
     padding: 3px 10px; font-size: 12px; font-weight: 500;
   }
-  .handle:hover .go, .handle:focus-visible .go { border-color: var(--accent); }
+  .handle:hover .go, .handle:focus-visible .go { background: #000; color: #fff; }
   .bio { font-size: 15px; line-height: 1.6; margin: 14px auto 32px; max-width: 340px; white-space: pre-line; }
   ul { list-style: none; display: grid; gap: 12px; }
   a.link {
@@ -92,7 +92,7 @@ const LINKS = [
   { emoji: "📊", label: "콘텐츠 매니저", desc: "기획, 업로드, 성과 분석까지 한 곳에서!", url: "https://parkdlstn246-svg.github.io/content-manager/" },
   { emoji: "📝", label: "회고록 모임",   desc: "매주 회고를 올리며 성장하는 모임", url: "https://retro-club-73e7e.web.app/" },
   { emoji: "✍️", label: "네이버 블로그", desc: "기록하고 있어요!", url: "https://m.blog.naver.com/yun_ggaam" },
-  { emoji: "🏋️", label: "꾸틴 스팟",     desc: "꾸준히 운동하는 사람들을 소개해요", url: "https://www.instagram.com/kkutine.spot/" },
+  { emoji: "🏋️", label: "kkutine.spot",  desc: "꾸준히 운동하는 사람들을 소개합니다!", url: "https://www.instagram.com/kkutine.spot/" },
   // 링크를 더 넣고 싶으면 위 줄을 복사해서 추가하세요
 ];
 /* =========================================== */
